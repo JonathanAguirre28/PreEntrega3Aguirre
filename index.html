@@ -5,62 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MobileXpress- Explora, Compra y Descubre los Mejores Celulares</title>
+    <!-- --------------------------- LINK BOOTSTRAP ---------------------------- -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- ------------------------------ LINK CSS ------------------------------- -->
+    <link rel="stylesheet" href="css/stylo.css">
 </head>
 
-<body>
+<body style="background-color: #d6d6d6;">
     <div class="container">
-        <header style="background-color: #aaa">
+        <header style="background-color: #adadad">
             <h1 class="text-center">MobileXpress</h1>
         </header>
 
-        <section id="buscador" class="row">
-        
+        <section class="d-flex justify-content-between">
+            <div >
+                <h3>filtrar por precio</h3>
+                <label for="minimo">
+                    minimo$
+                    <input type="number" name="minimo" id="minimo" min="0" maxlength="6">
+                </label>
+                <label for="maximo">
+                    maximo$
+                    <input type="number" name="maximo" id="maximo" max="300000" maxlength="6">
+                </label>
+                <input type="submit" value="filtrar" class="btn btn-dark" id="filtro">
+            </div>
+
+            <div>
+                <h3>filtrar por modelo</h3>
+                <label for="modelo">
+                    modelo de celular
+                    <input type="text" name="modelo" id="modelo" modelo="text" maxlength="text">
+                </label>
+                <input type="submit" value="filtrar" class="btn btn-dark" id="filtroNombre">
+            </div>
         </section>
 
-        <section id="misprods" class="row">
-            <!-- Aqui los productos -->
-        </section>
 
-        <section>
-            <h3>Suscribete</h3>
-            <form id="formulario">
-                <label for="nombre">
-                    Nombre
-                    <input type="text" name="nombre" id="nombre" placeholder="Juana" />
-                </label>
-                <label for="email">
-                    Email:
-                    <input type="email" name="email" id="email" placeholder="juani@gmail.com" />
-                    <small id="mensaje"></small>
-                </label>
-                <input type="submit" value="enviar" class="btn btn-success" />
-                <input type="button" value="borrar" class="btn btn-danger" onclick="borrarCampos()">
-            </form>
+        <!-- ---------------------------- MIS PRODUCTOS ---------------------------- -->
+        <section id="misprods" class="row d-flex justify-content-center ">
+
         </section>
         <hr>
-        <main>
-
-
-            <section>
-                <h4>Tu carrito:</h4>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablabody">
-                        <!-- aqui tabla carrito -->
-                    </tbody>
-                </table>
-                <h4 id="total">Total a pagar $:</h4>
-            </section>
-        </main>
-        <footer>
+        <section>
+            <h4>Tu carrito:</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="tablabody">
+                    <!-- aqui tabla carrito -->
+                </tbody>
+            </table>
+            <h4 id="total">Total a pagar $:</h4>
+        </section>
+        <footer class="d-flex justify-content-center">
             <p>© 2023 Jonathan Adrian Aguirre. Todos los derechos reservados.</p>
         </footer>
         <!-- JavaScript Bundle with Popper -->
@@ -68,9 +72,9 @@
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
         </script>
     </div>
-           <!-- Mi script -->
-           <script src="javascript/productos.js"></script>
-           <script src="javascript/miArchivo.js"></script>
+    <!-- Mi script -->
+    <script src="javascript/productos.js"></script>
+    <script src="javascript/miArchivo.js"></script>
 </body>
 
 </html>

@@ -34,5 +34,40 @@ const productos = [{
         foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/29ccbb5c02aec1862b4f5a57a55d0f2f/s/m/sm-g990_s21fe_front_za_1_8_3.png",
         color: "gris",
         precio: 52000
-    }
+    },
+    {
+        id: 6,
+        modelo: "Motorola Moto G32",
+        foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/f/r/frente_18_1.png",
+        color: "gris",
+        precio: 90000
+    },
+    {
+        id: 7,
+        modelo: "Motorola Moto E22",
+        foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/m/o/motoe22-negro-frente.png",
+        color: "negro",
+        precio: 57000
+    },
+    {
+        id: 8,
+        modelo: "Motorola Moto G13 4G",
+        foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/m/o/moto-g13-concrete-front_1.png",
+        color: "gris",
+        precio: 88000
+    },
+    {
+        id: 9,
+        modelo: "Motorola Moto E32",
+        foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/m/o/motoe32-gris-frente_1.png",
+        color: "gris",
+        precio: 70000
+    },
+    {
+        id: 10,
+        modelo: "Motorola Moto G23 4G",
+        foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/m/o/moto-g23-blanco-front.png",
+        color: "blanco",
+        precio: 100000
+    } 
 ];
