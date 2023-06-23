@@ -9,12 +9,12 @@ function renderizarProductos(listaprods) {
     //cargamos las cartas de los productos solicitados
     for (const prod of listaprods) {
         contenedorProds.innerHTML += `
-        <div class="card col-sm-3 m-2">
-           <img class="card-img-top" src=${prod.foto} alt="card image cap">
-            <div class="card-body">
-            <h5 class="card-title">${prod.modelo}</h5>
-            <p class="card-text">${prod.precio}</p>
-            <button id=${prod.id} class="btn btn-primary compra">Comprar</button>
+        <div class="card col-sm-3 m-2 bg-secondary border border-3 rounded-5 p-3" style="width: 250px">
+           <img class="card-img-top w-75 m-3" src=${prod.foto} alt="card image cap">
+            <div class="card-body d-grid ">
+            <h5 class="card-title text-center text-light fw-bolder">${prod.modelo}</h5>
+            <p class="card-text text-center text-light fw-bolder">$ ${prod.precio}</p>
+            <button id=${prod.id} class="btn btn-danger rounded-5 compra">Añadir al carrito</button>
           </div>
        </div>
         `;
@@ -27,6 +27,13 @@ function renderizarProductos(listaprods) {
             const prodACarro = productos.find((producto)=> producto.id == boton.id);
             console.log(prodACarro);
             //cargar prod al carro
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Añadido a carrito',
+                showConfirmButton: false,
+                timer: 1500
+              })
             agregarACarrito(prodACarro);
         })
         boton.onmouseover = () =>{
@@ -55,7 +62,7 @@ function agregarACarrito(producto){
     console.table(total);
     document.getElementById("total").innerText=`total a pagar $:${total}`;
     //agregamos storage
-    localStorage.setItem("carro", JSON.stringify(carro))
+    localStorage.setItem("carro", JSON.stringify(carro));
 }
 
 let filtro = document.getElementById("filtro");

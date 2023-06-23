@@ -23,7 +23,7 @@ const productos = [{
     },
     {
         id: 4,
-        modelo: "Samsung S23 Ultra 5g 256 gb",
+        modelo: "Samsung S23 Ultra 5G 256 GB",
         foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/29ccbb5c02aec1862b4f5a57a55d0f2f/i/m/image_4__40.png",
         color: "negro",
         precio: 60000
@@ -65,6 +65,20 @@ const productos = [{
     },
     {
         id: 10,
+        modelo: "Motorola Moto G23 4G",
+        foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/m/o/moto-g23-blanco-front.png",
+        color: "blanco",
+        precio: 100000
+    },
+    {
+        id: 11,
+        modelo: "Motorola Moto G23 4G",
+        foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/m/o/moto-g23-blanco-front.png",
+        color: "blanco",
+        precio: 100000
+    },
+    {
+        id: 12,
         modelo: "Motorola Moto G23 4G",
         foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/m/o/moto-g23-blanco-front.png",
         color: "blanco",
