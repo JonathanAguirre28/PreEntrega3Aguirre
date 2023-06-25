@@ -15,7 +15,7 @@
 </head>
 
 <body style="background-color: #d6d6d6;">
-    <section class="container ">
+    <section class="container-fluid">
         <!-- ------------------------------- HEADER -------------------------------- -->
         <header class="d-flex justify-content-between bg-dark">
             <div class="d-flex justify-content-between">
@@ -25,15 +25,15 @@
                     </li>
                 </ul>
             </div>
-            <div>
+            <div class="d-flex justify-content-between">
                 <a href="html/carrito.html" target="_blank"> <img src="imagenes/carrito.png" class="p-3"
                         style="height: 5rem;" alt="carrito de compras"></a>
             </div>
         </header>
         <!-- ------------------------------ CARRUSEL ------------------------------- -->
         <div class="row">
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+            <div id="carouselExampleControls" class="carousel slide w-100" data-bs-ride="carousel">
+                <div class="carousel-inner w-100">
                     <div class="carousel-item active">
                         <img src="imagenes/imagen header.jpg" class="d-block w-100" alt="img1">
                     </div>
@@ -55,9 +55,8 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-
         </div>
-        </div>
+        
 
 
         <section class="d-flex justify-content-between">
@@ -89,22 +88,30 @@
         <section id="misprods" class="row d-flex justify-content-center ">
 
         </section>
-        <hr>
 
-        <footer style="flex-direction: column">
+        <footer style="flex-direction: column" class="row bg-secondary bg-opacity-25">
             <div style="flex-direction: column">
-                <p>Aceptamos los siguientes medios de pago:</p>
+                <p class="d-flex justify-content-center fw-bolder p-2">¡Encuéntranos en nuestras páginas de Facebook e
+                    Instagram!</p>
             </div>
-            <div>
-                <ul>
-                    <li><img src="" alt="Visa"></li>
-                    <li><img src="" alt="Mastercard"></li>
-                    <li><img src="" alt="PayPal"></li>
-                    <li><img src="" alt="MercadoPago"></li>
-                  </ul>
+            <div class="">
+                <ul class="d-flex justify-content-center list-unstyled">
+                    <li><img src="imagenes/iconoFacebook.png" alt="Visa" style="height: 3rem;" class="m-2"></li>
+                    <li><img src="imagenes/iconoInstagram1.png" alt="Mastercard" style="height: 4rem;"></li>
+
+                </ul>
             </div>
-            <hr>
-            <div class="d-flex justify-content-center ">
+            <div style="flex-direction: column">
+                <p class="d-flex justify-content-center fw-bolder">Aceptamos los siguientes medios de pago:</p>
+            </div>
+            <div class="">
+                <ul class="d-flex justify-content-center list-unstyled">
+                    <li><img src="imagenes/iconoTargetaVisa.png" alt="Visa" style="height: 4rem;"></li>
+                    <li><img src="imagenes/iconoMaster.png" alt="Mastercard" style="height: 3.5rem;"></li>
+                    <li><img src="imagenes/iconoMercadoPago.png" alt="MercadoPago" style="height: 4rem;"></li>
+                </ul>
+            </div>
+            <div class="d-flex justify-content-center fw-bolder">
                 <p>© 2023 Jonathan Adrian Aguirre. Todos los derechos reservados.</p>
             </div>
         </footer>
