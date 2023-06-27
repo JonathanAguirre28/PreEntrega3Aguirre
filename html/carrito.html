@@ -68,20 +68,22 @@
         <!-- ------------------------------- CARRITO DE COMPRAS ------------------------------- -->
 
         <div class="p-2">
-            <table>
-                <thead class="d-flex">
-                    <tr class="justify-content-between">
-                        <th>id</th>
-                        <th>imagen</th>
-                        <th>Subtotal</th>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">imagen</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Precio</th>
                     </tr>
                 </thead>
                 <tbody id="tablaCarrito">
                     <!-- Aquí se insertarán las filas generadas dinámicamente -->
                 </tbody>
-                <h4 id="total">total a pagar $:</h4>
             </table>
+            <h4 class="d-flex justify-content-center" id="total">total a pagar $:</h4>
         </div>
+        
+        
 
         <!-- ------------------------------- FOOTER -------------------------------- -->
         <footer style="flex-direction: column" class="row bg-secondary bg-opacity-25">
