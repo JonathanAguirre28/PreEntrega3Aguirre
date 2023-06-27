@@ -1,11 +1,10 @@
-console.table(productos);
-const carro= JSON.parse (localStorage.getItem("carro")) || [];
 let contenedorProds = document.getElementById("misprods");
-let tablaBody = document.getElementById("tablabody");
+const carroExistente = localStorage.getItem("carro");
+const carro = carroExistente ? JSON.parse(carroExistente) : [];
 
 function renderizarProductos(listaprods) {
     //vaciamos el contenedor para evitar duplicados
-    contenedorProds.innerHTML = '';
+    contenedorProds.innerHTML = "";
     //cargamos las cartas de los productos solicitados
     for (const prod of listaprods) {
         contenedorProds.innerHTML += `
@@ -22,9 +21,9 @@ function renderizarProductos(listaprods) {
 
     //EVENTOS
     let botones = document.getElementsByClassName("compra");
-    for(const boton of botones){
-        boton.addEventListener("click", ()=> {
-            const prodACarro = productos.find((producto)=> producto.id == boton.id);
+    for (const boton of botones) {
+        boton.addEventListener("click", () => {
+            const prodACarro = productos.find((producto) => producto.id == boton.id);
             console.log(prodACarro);
             //cargar prod al carro
             Swal.fire({
@@ -33,37 +32,40 @@ function renderizarProductos(listaprods) {
                 title: 'Añadido a carrito',
                 showConfirmButton: false,
                 timer: 1500
-              })
-            agregarACarrito(prodACarro);
+            })
+
+            let carro;
+
+            if (carroExistente) {
+                carro = JSON.parse(carroExistente);
+                if (!Array.isArray(carro)) {
+                    carro = [];
+                }
+            } else {
+                carro = [];
+            }
+
+            carro.push(prodACarro);
+
+            localStorage.setItem("carro", JSON.stringify(carro));
+
+            localStorage.setItem("carro", JSON.stringify(carro));
+
         })
-        boton.onmouseover = () =>{
-            boton.classList.replace("btn-primary","btn-warning");
+        boton.onmouseover = () => {
+            boton.classList.replace("btn-primary", "btn-warning");
         }
-        boton.onmouseout = () =>{
-            boton.classList.replace("btn-warning","btn-primary");
+        boton.onmouseout = () => {
+            boton.classList.replace("btn-warning", "btn-primary");
         }
     }
 }
 
+
+let tablaCarrito = document.getElementById("tablaCarrito");
+
+
 renderizarProductos(productos);
-
-function agregarACarrito(producto){
-    carro.push(producto);
-    console.table(carro);
-    tablaBody.innerHTML=`
-    <tr>
-    <td>${producto.id}</td>
-    <td>${producto.modelo}</td>
-    <td>${producto.precio}</td>
-    </tr>`;
-
-    //calcular total
-    let total = carro.reduce((ac,prod) => ac + prod.precio, 0);
-    console.table(total);
-    document.getElementById("total").innerText=`total a pagar $:${total}`;
-    //agregamos storage
-    localStorage.setItem("carro", JSON.stringify(carro));
-}
 
 let filtro = document.getElementById("filtro");
 let filtroNombre = document.getElementById("modelo");
@@ -72,15 +74,15 @@ let maximo = document.getElementById("maximo");
 let marca = document.getElementById("modelo");
 
 //funcion para poder filtrar por precio
-function filtrarPorPrecio(preciominimo, preciomaximo){
+function filtrarPorPrecio(preciominimo, preciomaximo) {
     const filtrados = productos.filter((prod) => (prod.precio >= preciominimo) && (prod.precio <= preciomaximo));
     sessionStorage.setItem("filtrados", JSON.stringify(filtrados));
-    return filtrados; 
+    return filtrados;
 }
 
 filtro.onclick = () => {
-    if((minimo.value != "")&&(maximo.value != "")&&(minimo.value < maximo.value)){
-        let listaFiltrados = filtrarPorPrecio (minimo.value, maximo.value);
+    if ((minimo.value != "") && (maximo.value != "") && (minimo.value < maximo.value)) {
+        let listaFiltrados = filtrarPorPrecio(minimo.value, maximo.value);
         renderizarProductos(listaFiltrados);
     }
 }
@@ -92,13 +94,11 @@ function filtrarPorModelo(modelo) {
     const filtrados = productos.filter((prod) => prod.modelo.toLowerCase().includes(modelo.toLowerCase()));
     sessionStorage.setItem("filtrados", JSON.stringify(filtrados));
     return filtrados;
-  }
+}
 
 filtroNombre.onkeydown = () => {
-    if(modelo.value != ""){
+    if (modelo.value != "") {
         let listaFiltrados = filtrarPorModelo(modelo.value);
         renderizarProductos(listaFiltrados);
     }
 }
-
-

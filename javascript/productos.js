@@ -72,16 +72,16 @@ const productos = [{
     },
     {
         id: 11,
-        modelo: "Motorola Moto G23 4G",
-        foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/m/o/moto-g23-blanco-front.png",
-        color: "blanco",
-        precio: 100000
+        modelo: "TCL 405",
+        foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/d/a/dark-gray-front.png",
+        color: "gris",
+        precio: 40000
     },
     {
         id: 12,
-        modelo: "Motorola Moto G23 4G",
-        foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/m/o/moto-g23-blanco-front.png",
-        color: "blanco",
-        precio: 100000
+        modelo: "TCL 408",
+        foto: "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/t/c/tcl-408-front_1.png",
+        color: "gris",
+        precio: 50000
     } 
 ];
