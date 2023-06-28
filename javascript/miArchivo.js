@@ -25,7 +25,7 @@ function renderizarProductos(listaprods) {
         boton.addEventListener("click", () => {
             const prodACarro = productos.find((producto) => producto.id == boton.id);
             console.log(prodACarro);
-            //cargar prod al carro
+            
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -86,8 +86,6 @@ filtro.onclick = () => {
         renderizarProductos(listaFiltrados);
     }
 }
-
-//cambiar una variable que tengo de mas
 
 //funcion para poder filtrar por marca
 function filtrarPorModelo(modelo) {

@@ -68,8 +68,8 @@
 
         <!-- -------------------- FILTRADO POR PRECIO Y MODELO --------------------- -->
 
-        <section class="d-flex justify-content-between p-2">
-            <div>
+        <section class="d-flex justify-content-around p-3">
+            <div class="">
                 <h3 class="fw-bolder fs-5 d-flex justify-content-center">Filtrar por precio</h3>
                 <label for="minimo" class="fw-bolder">
                     Minimo$
@@ -79,16 +79,16 @@
                     Maximo$
                     <input type="number" name="maximo" id="maximo" max="300000" maxlength="6">
                 </label>
-                <input type="submit" value="filtrar" class="btn btn-dark" id="filtro">
+                <input type="submit" value="filtrar" class="btn btn-danger btn-sm" id="filtro">
             </div>
 
-            <div>
+            <div class="">
                 <h3 class="fw-bolder fs-5 d-flex justify-content-center">Filtrar por modelo</h3>
                 <label for="modelo" class="fw-bolder">
                     Modelo de celular
                     <input type="text" name="modelo" id="modelo" modelo="text" maxlength="text">
                 </label>
-                <input type="submit" value="filtrar" class="btn btn-dark" id="filtroNombre">
+                <input type="submit" value="filtrar" class="btn btn-danger btn-sm" id="filtroNombre">
             </div>
         </section>
 
@@ -138,7 +138,7 @@
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
         </script>
     </section>
-    <!-- ------------------------------ MI SCRIPT ------------------------------ -->
+    <!-- ------------------------------ MIs SCRIPT ------------------------------ -->
     <script src="javascript/productos.js"></script>
     <script src="javascript/miArchivo.js"></script>
 </body>
