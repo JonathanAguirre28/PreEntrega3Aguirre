@@ -27,12 +27,13 @@ function renderizarProductos(listaprods) {
             console.log(prodACarro);
             
             Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Añadido a carrito',
-                showConfirmButton: false,
-                timer: 1500
-            })
+                title: 'Fantastico!',
+                text: `Agregaste ${prodACarro.modelo} al carrito!`,
+                imageUrl: prodACarro.foto,
+                imageWidth: 250,
+                imageHeight: 150,
+                imageAlt: prodACarro.modelo,
+              })
 
             let carro;
 
