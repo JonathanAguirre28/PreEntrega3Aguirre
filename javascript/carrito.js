@@ -40,7 +40,7 @@ function calcularTotal() {
                 carro.splice(index, 1);
                 localStorage.setItem("carro", JSON.stringify(carro));
                 calcularTotal();
-                localStorage.removeItem("carro"); 
+                localStorage.removeItem("carro");
                 console.log(prodACarro);
             });
         }
@@ -48,3 +48,21 @@ function calcularTotal() {
 }
 
 calcularTotal();
+
+//FINALIZAR COMPRA
+let finalizarBtn = document.getElementById("finalizar");
+finalizarBtn.onclick = () => {
+    carro = [];
+    document.getElementById("tablaCarrito").innerHTML = '';
+    document.getElementById("total").innerHTML = `Total a pagar $: `;
+    localStorage.removeItem("carro");
+    Toastify({
+        text: 'Gracias por tu compra, en las proximas 48 horas recibiras tu pedido!',
+        duration: 3000,
+        gravity: 'botton',
+        position: 'left',
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+    }).showToast();
+}

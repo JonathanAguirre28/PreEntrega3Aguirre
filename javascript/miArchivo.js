@@ -28,7 +28,7 @@ function renderizarProductos(listaprods) {
             
             Swal.fire({
                 title: 'Fantastico!',
-                text: `Agregaste ${prodACarro.modelo} al carrito!`,
+                text: `Agregaste al carrito: ${prodACarro.modelo}`,
                 imageUrl: prodACarro.foto,
                 imageWidth: 250,
                 imageHeight: 150,
