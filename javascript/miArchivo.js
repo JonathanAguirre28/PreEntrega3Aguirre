@@ -25,7 +25,7 @@ function renderizarProductos(listaprods) {
         boton.addEventListener("click", () => {
             const prodACarro = productos.find((producto) => producto.id == boton.id);
             console.log(prodACarro);
-            
+
             Swal.fire({
                 title: 'Fantastico!',
                 text: `Agregaste al carrito: ${prodACarro.modelo}`,
@@ -33,7 +33,7 @@ function renderizarProductos(listaprods) {
                 imageWidth: 250,
                 imageHeight: 150,
                 imageAlt: prodACarro.modelo,
-              })
+            })
 
             let carro;
 
@@ -47,8 +47,6 @@ function renderizarProductos(listaprods) {
             }
 
             carro.push(prodACarro);
-
-            localStorage.setItem("carro", JSON.stringify(carro));
 
             localStorage.setItem("carro", JSON.stringify(carro));
 
