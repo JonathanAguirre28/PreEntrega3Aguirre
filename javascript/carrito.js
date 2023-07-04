@@ -54,7 +54,7 @@ let finalizarBtn = document.getElementById("finalizar");
 finalizarBtn.onclick = () => {
   carro = [];
   document.getElementById("tablaCarrito").innerHTML = '';
-  document.getElementById("total").innerHTML = `El carrito está vacío`;
+  document.getElementById("total").innerHTML = `Compra finalizada!.`;
   localStorage.removeItem("carro");
   Toastify({
     text: 'Gracias por tu compra, en las próximas 48 horas recibirás tu pedido!',
