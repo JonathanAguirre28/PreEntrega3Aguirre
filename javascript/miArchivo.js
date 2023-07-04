@@ -3,10 +3,8 @@ const carroExistente = localStorage.getItem("carro");
 const carro = carroExistente ? JSON.parse(carroExistente) : [];
 
 function renderizarProductos(listaprods) {
-  // Vaciamos el contenedor para evitar duplicados
   contenedorProds.innerHTML = "";
 
-  // Cargamos las cartas de los productos solicitados
   for (const prod of listaprods) {
     contenedorProds.innerHTML += `
       <div class="card col-sm-3 m-2 bg-secondary border border-3 rounded-5 p-3" style="width: 250px">
@@ -19,8 +17,9 @@ function renderizarProductos(listaprods) {
       </div>
     `;
   }
+}
 
-  // EVENTOS
+function actualizarCarro() {
   let botones = document.getElementsByClassName("compra");
   for (const boton of botones) {
     boton.addEventListener("click", () => {
@@ -61,6 +60,7 @@ function renderizarProductos(listaprods) {
 let tablaCarrito = document.getElementById("tablaCarrito");
 
 renderizarProductos(productos);
+actualizarCarro();
 
 let filtro = document.getElementById("filtro");
 let filtroNombre = document.getElementById("modelo");
@@ -80,19 +80,21 @@ filtro.onclick = () => {
   if ((minimo.value != "") && (maximo.value != "") && (minimo.value < maximo.value)) {
     let listaFiltrados = filtrarPorPrecio(minimo.value, maximo.value);
     renderizarProductos(listaFiltrados);
+    actualizarCarro(); 
   }
 }
 
 //funcion para poder filtrar por marca
 function filtrarPorModelo(modelo) {
-    const filtrados = productos.filter((prod) => prod.modelo.toLowerCase().includes(modelo.toLowerCase()));
-    sessionStorage.setItem("filtrados", JSON.stringify(filtrados));
-    return filtrados;
+  const filtrados = productos.filter((prod) => prod.modelo.toLowerCase().includes(modelo.toLowerCase()));
+  sessionStorage.setItem("filtrados", JSON.stringify(filtrados));
+  return filtrados;
 }
 
 filtroNombre.onkeydown = () => {
-    if (modelo.value != "") {
-        let listaFiltrados = filtrarPorModelo(modelo.value);
-        renderizarProductos(listaFiltrados);
-    }
+  if (modelo.value != "") {
+    let listaFiltrados = filtrarPorModelo(modelo.value);
+    renderizarProductos(listaFiltrados);
+    actualizarCarro(); 
+  }
 }
