@@ -1,6 +1,9 @@
+let productos;
+obtenerJsonProds();
 let contenedorProds = document.getElementById("misprods");
 const carroExistente = localStorage.getItem("carro");
 const carro = carroExistente ? JSON.parse(carroExistente) : [];
+
 
 function renderizarProductos(listaprods) {
   contenedorProds.innerHTML = "";
@@ -59,7 +62,6 @@ function actualizarCarro() {
 
 let tablaCarrito = document.getElementById("tablaCarrito");
 
-renderizarProductos(productos);
 actualizarCarro();
 
 let filtro = document.getElementById("filtro");
@@ -80,7 +82,7 @@ filtro.onclick = () => {
   if ((minimo.value != "") && (maximo.value != "") && (minimo.value < maximo.value)) {
     let listaFiltrados = filtrarPorPrecio(minimo.value, maximo.value);
     renderizarProductos(listaFiltrados);
-    actualizarCarro(); 
+    actualizarCarro();
   }
 }
 
@@ -95,6 +97,33 @@ filtroNombre.onkeydown = () => {
   if (modelo.value != "") {
     let listaFiltrados = filtrarPorModelo(modelo.value);
     renderizarProductos(listaFiltrados);
-    actualizarCarro(); 
+    actualizarCarro();
   }
 }
+
+//JSON
+function obtenerJsonProds() {
+  const URLJSON = "../json/productos.json";
+  fetch(URLJSON)
+    .then(response => response.json())
+    .then(data => {
+      productos = data;
+      renderizarProductos(productos);
+      actualizarCarro();
+    })
+    .catch(error => {
+      console.error('Error al obtener los datos del archivo JSON:', error);
+    });
+}
+
+//API DOLAR
+function obtenerDolar() {
+  const URLDOLAR = "https://api.bluelytics.com.ar/v2/latest";
+  fetch(URLDOLAR)
+    .then(respuesta => respuesta.json())
+    .then(datos => {
+      const cotizacionesBlue = datos.blue;
+      document.getElementById("cotizaciones").innerText = `Dólar compra: $${cotizacionesBlue.value_buy} - Dólar venta: $${cotizacionesBlue.value_sell}`;
+    })
+}
+obtenerDolar();

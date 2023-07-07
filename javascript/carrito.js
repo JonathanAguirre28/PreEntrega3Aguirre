@@ -2,6 +2,7 @@ let tablaCarrito = document.getElementById("tablaCarrito");
 let totalHtml = document.getElementById("total");
 let carro = JSON.parse(localStorage.getItem("carro")) || [];
 
+//CALCULAR TOTAL DE LOS PRODUCTOS
 function calcularTotal() {
   let total = carro.reduce((ac, prod) => {
     if (typeof prod.precio === 'number' && !isNaN(prod.precio)) {
@@ -81,9 +82,29 @@ finalizarBtn.onclick = () => {
   carro = [];
   tablaCarrito.innerHTML = "";
   totalHtml.innerHTML = `Compra finalizada!`;
+  //STORAGE NEW
   localStorage.removeItem("carro");
   Toastify({
     text: "Gracias por tu compra, en las próximas 48 horas recibirás tu pedido!",
+    duration: 3000,
+    gravity: "bottom",
+    position: "left",
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+  }).showToast();
+};
+
+//VACIAR CARRO
+let vaciarBtn = document.getElementById("vaciar");
+vaciarBtn.onclick = () => {
+  carro = [];
+  tablaCarrito.innerHTML = "";
+  totalHtml.innerHTML = `Carrito vacio!`;
+  //STORAGE NEW
+  localStorage.removeItem("carro");
+  Toastify({
+    text: "Carrito vacio, puedes volver a realizar tu compra!",
     duration: 3000,
     gravity: "bottom",
     position: "left",
