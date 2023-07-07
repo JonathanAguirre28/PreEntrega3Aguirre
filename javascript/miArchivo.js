@@ -103,7 +103,7 @@ filtroNombre.onkeydown = () => {
 
 //JSON
 function obtenerJsonProds() {
-  const URLJSON = "../json/productos.json";
+  const URLJSON = "./json/productos.json";
   fetch(URLJSON)
     .then(response => response.json())
     .then(data => {
