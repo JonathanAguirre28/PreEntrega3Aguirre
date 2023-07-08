@@ -100,7 +100,6 @@ vaciarBtn.onclick = () => {
   carro = [];
   tablaCarrito.innerHTML = "";
   totalHtml.innerHTML = `Carrito vacio!`;
-  //STORAGE NEW
   localStorage.removeItem("carro");
   Toastify({
     text: "Carrito vacio, puedes volver a realizar tu compra!",
