@@ -93,4 +93,20 @@
     "color": "gris",
     "precio": 50000,
     "cantidad": 0
+},
+{
+    "id": 13,
+    "modelo": "TCL 305I",
+    "foto": "https://tienda.movistar.com.ar/media/catalog/product/cache/29ccbb5c02aec1862b4f5a57a55d0f2f/t/c/tcl-305-frente.png",
+    "color": "negro",
+    "precio": 41000,
+    "cantidad": 0 
+},
+{
+    "id": 14,
+    "modelo": "TCL 30SE ",
+    "foto": "https://tienda.movistar.com.ar/media/catalog/product/cache/1d01ed3f1ecf95fcf479279f9ae509ad/f/r/frente_26_3.png",
+    "color": "gris",
+    "precio": 72000,
+    "cantidad": 0 
 }]

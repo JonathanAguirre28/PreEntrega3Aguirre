@@ -1,8 +1,8 @@
-let tablaCarrito = document.getElementById("tablaCarrito");
-let totalHtml = document.getElementById("total");
+const tablaCarrito = document.getElementById("tablaCarrito");
+const totalHtml = document.getElementById("total");
 let carro = JSON.parse(localStorage.getItem("carro")) || [];
 
-//CALCULAR TOTAL DE LOS PRODUCTOS
+// Función para calcular el total de los productos en el carrito
 function calcularTotal() {
   let total = carro.reduce((ac, prod) => {
     if (typeof prod.precio === 'number' && !isNaN(prod.precio)) {
@@ -39,9 +39,9 @@ function calcularTotal() {
     tablaCarrito.appendChild(fila);
   }
 
-  let botonesEliminar = document.getElementsByClassName("eliminar");
-  let botonesSumar = document.getElementsByClassName("sumar");
-  let botonesRestar = document.getElementsByClassName("restar");
+  const botonesEliminar = document.getElementsByClassName("eliminar");
+  const botonesSumar = document.getElementsByClassName("sumar");
+  const botonesRestar = document.getElementsByClassName("restar");
 
   for (let i = 0; i < botonesEliminar.length; i++) {
     botonesEliminar[i].addEventListener("click", () => {
@@ -76,13 +76,12 @@ function calcularTotal() {
 }
 calcularTotal();
 
-//FINALIZAR COMPRA
-let finalizarBtn = document.getElementById("finalizar");
+// Evento para finalizar la compra
+const finalizarBtn = document.getElementById("finalizar");
 finalizarBtn.onclick = () => {
   carro = [];
   tablaCarrito.innerHTML = "";
   totalHtml.innerHTML = `Compra finalizada!`;
-  //STORAGE NEW
   localStorage.removeItem("carro");
   Toastify({
     text: "Gracias por tu compra, en las próximas 48 horas recibirás tu pedido!",
@@ -95,8 +94,8 @@ finalizarBtn.onclick = () => {
   }).showToast();
 };
 
-//VACIAR CARRO
-let vaciarBtn = document.getElementById("vaciar");
+// Evento para vaciar el carrito
+const vaciarBtn = document.getElementById("vaciar");
 vaciarBtn.onclick = () => {
   carro = [];
   tablaCarrito.innerHTML = "";

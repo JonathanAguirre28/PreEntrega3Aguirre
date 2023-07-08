@@ -4,7 +4,7 @@ let contenedorProds = document.getElementById("misprods");
 const carroExistente = localStorage.getItem("carro");
 const carro = carroExistente ? JSON.parse(carroExistente) : [];
 
-
+// Renderizar los productos en el contenedor
 function renderizarProductos(listaprods) {
   contenedorProds.innerHTML = "";
 
@@ -22,6 +22,7 @@ function renderizarProductos(listaprods) {
   }
 }
 
+// Actualizar el carrito
 function actualizarCarro() {
   let botones = document.getElementsByClassName("compra");
   for (const boton of botones) {
@@ -70,7 +71,7 @@ let minimo = document.getElementById("minimo");
 let maximo = document.getElementById("maximo");
 let marca = document.getElementById("modelo");
 
-// Función para filtrar por precio
+// Evento para filtrar por precio
 function filtrarPorPrecio(preciominimo, preciomaximo) {
   const filtrados = productos.filter((prod) => (prod.precio >= preciominimo) && (prod.precio <= preciomaximo));
   sessionStorage.setItem("filtrados", JSON.stringify(filtrados));
@@ -78,6 +79,7 @@ function filtrarPorPrecio(preciominimo, preciomaximo) {
   return filtrados;
 }
 
+// Filtrar productos por precio
 filtro.onclick = () => {
   if ((minimo.value != "") && (maximo.value != "") && (minimo.value < maximo.value)) {
     let listaFiltrados = filtrarPorPrecio(minimo.value, maximo.value);
@@ -86,13 +88,14 @@ filtro.onclick = () => {
   }
 }
 
-//funcion para poder filtrar por marca
+// Filtrar productos por modelo
 function filtrarPorModelo(modelo) {
   const filtrados = productos.filter((prod) => prod.modelo.toLowerCase().includes(modelo.toLowerCase()));
   sessionStorage.setItem("filtrados", JSON.stringify(filtrados));
   return filtrados;
 }
 
+// Evento para filtrar por modelo
 filtroNombre.onkeydown = () => {
   if (modelo.value != "") {
     let listaFiltrados = filtrarPorModelo(modelo.value);
@@ -101,7 +104,7 @@ filtroNombre.onkeydown = () => {
   }
 }
 
-//JSON
+// Obtener productos desde un archivo JSON local
 function obtenerJsonProds() {
   const URLJSON = "./json/productos.json";
   fetch(URLJSON)
@@ -116,7 +119,7 @@ function obtenerJsonProds() {
     });
 }
 
-//API DOLAR
+// Obtener cotización del dólar desde una API externa
 function obtenerDolar() {
   const URLDOLAR = "https://api.bluelytics.com.ar/v2/latest";
   fetch(URLDOLAR)
