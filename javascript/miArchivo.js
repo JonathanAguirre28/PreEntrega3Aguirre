@@ -34,8 +34,8 @@ function actualizarCarro() {
         title: 'Fantastico!',
         text: `Agregaste al carrito: ${prodACarro.modelo}`,
         imageUrl: prodACarro.foto,
-        imageWidth: 250,
-        imageHeight: 150,
+        imageWidth: 200,
+        imageHeight: 200,
         imageAlt: prodACarro.modelo,
       })
 
@@ -70,6 +70,7 @@ let filtroNombre = document.getElementById("modelo");
 let minimo = document.getElementById("minimo");
 let maximo = document.getElementById("maximo");
 let marca = document.getElementById("modelo");
+let refrescarPagina = document.getElementById("actualizar");
 
 // Evento para filtrar por precio
 function filtrarPorPrecio(preciominimo, preciomaximo) {
@@ -103,6 +104,11 @@ filtroNombre.onkeydown = () => {
     actualizarCarro();
   }
 }
+
+// evento para actualizar pagina despues de elegir un modelo o precio
+refrescarPagina.addEventListener("click", () => {
+  location.reload();
+});
 
 // Obtener productos desde un archivo JSON local
 function obtenerJsonProds() {
